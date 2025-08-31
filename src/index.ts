@@ -25,16 +25,9 @@ app.get('/swagger', (req, res) => {
   res.redirect('/api-docs');
 });
 
-// Rota raiz
+// Redireciona a rota raiz para o Swagger
 app.get('/', (req, res) => {
-  res.json({
-    message: 'API To-Do está funcionando!',
-    docs: '/api-docs',
-    endpoints: {
-      users: '/users',
-      tasks: '/tasks'
-    }
-  });
+  res.redirect('/api-docs');
 });
 
 app.use('/users', userRoutes);
