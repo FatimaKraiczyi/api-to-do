@@ -30,11 +30,7 @@ const options = {
       bearerAuth: [],
     }],
   },
-  apis: [
-    join(__dirname, '../docs/swagger.ts'),
-    join(__dirname, '../routes/*.ts'),
-    join(__dirname, '../models/*.ts')
-  ],
+  apis: ['./src/routes/*.ts'], // arquivos que contêm anotações do swagger
 };
 
 export const specs = swaggerJsdoc(options);
