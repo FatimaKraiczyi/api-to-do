@@ -34,9 +34,3 @@ const options = {
 };
 
 export const specs = swaggerJsdoc(options);
-
-// Para debug
-console.log('Swagger configuration loaded');
-console.log('API documentation will be available at /api-docs');
-console.log('Current environment:', process.env.NODE_ENV);
-console.log('API URL:', options.definition.servers[0].url);
