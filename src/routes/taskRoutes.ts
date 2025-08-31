@@ -1,6 +1,6 @@
 import express from 'express';
 import { createTask, listTasks, updateTask, deleteTask } from '../controllers/taskController';
-import { authenticateToken } from '../middleware/auth';
+import { verificarToken } from '../middleware/auth';
 
 /**
  * @swagger
@@ -66,9 +66,9 @@ const router = express.Router();
  *                 $ref: '#/components/schemas/Task'
  */
 
-router.post('/', authenticateToken, createTask);
-router.get('/', authenticateToken, listTasks);
-router.put('/:id', authenticateToken, updateTask);
-router.delete('/:id', authenticateToken, deleteTask);
+router.post('/', verificarToken, createTask);
+router.get('/', verificarToken, listTasks);
+router.put('/:id', verificarToken, updateTask);
+router.delete('/:id', verificarToken, deleteTask);
 
 export default router;
