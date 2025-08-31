@@ -1,4 +1,5 @@
 import swaggerJsdoc from 'swagger-jsdoc';
+import { join } from 'path';
 
 const options = {
   definition: {
@@ -10,7 +11,9 @@ const options = {
     },
     servers: [
       {
-        url: process.env.API_URL || 'http://localhost:3001',
+        url: process.env.NODE_ENV === 'production' 
+          ? 'https://api-to-do-production-9b51.up.railway.app'
+          : 'http://localhost:3001',
         description: 'API Server',
       },
     ],
@@ -27,7 +30,13 @@ const options = {
       bearerAuth: [],
     }],
   },
-  apis: ['./src/routes/*.ts'], // arquivos que contêm anotações do swagger
+  apis: [join(__dirname, '../routes/*.ts')], // arquivos que contêm anotações do swagger
 };
 
 export const specs = swaggerJsdoc(options);
+
+// Para debug
+console.log('Swagger configuration loaded');
+console.log('API documentation will be available at /api-docs');
+console.log('Current environment:', process.env.NODE_ENV);
+console.log('API URL:', options.definition.servers[0].url);

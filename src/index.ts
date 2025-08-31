@@ -12,8 +12,18 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// Swagger
-app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs));
+// Swagger setup
+const swaggerOptions = {
+  customCss: '.swagger-ui .topbar { display: none }',
+  customSiteTitle: 'API To-Do Documentation'
+};
+
+app.use('/api-docs', swaggerUi.serve, swaggerUi.setup(specs, swaggerOptions));
+
+// Redirect /swagger to /api-docs
+app.get('/swagger', (req, res) => {
+  res.redirect('/api-docs');
+});
 
 // Rota raiz
 app.get('/', (req, res) => {
