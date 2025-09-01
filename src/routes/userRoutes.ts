@@ -88,7 +88,7 @@ const validacaoAtualizarPerfil = [
  * /usuarios/registrar:
  *   post:
  *     summary: Registra um novo usuário
- *     tags: [Usuarios]
+ *     tags: [Usuários]
  *     requestBody:
  *       required: true
  *       content:
@@ -129,7 +129,7 @@ router.post('/registrar', validacaoRegistro, registrar);
  * /usuarios/login:
  *   post:
  *     summary: Realiza login do usuário
- *     tags: [Usuarios]
+ *     tags: [Usuários]
  *     requestBody:
  *       required: true
  *       content:
@@ -233,7 +233,7 @@ router.post('/redefinir-senha/:token', [
  * /usuarios/perfil:
  *   get:
  *     summary: Obtém o perfil do usuário
- *     tags: [Usuarios]
+ *     tags: [Usuários]
  *     security:
  *       - bearerAuth: []
  *     responses:
@@ -247,7 +247,7 @@ router.post('/redefinir-senha/:token', [
  *         description: Não autorizado
  *   put:
  *     summary: Atualiza o perfil do usuário
- *     tags: [Usuarios]
+ *     tags: [Usuários]
  *     security:
  *       - bearerAuth: []
  *     requestBody:
